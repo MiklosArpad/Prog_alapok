@@ -65,18 +65,36 @@ namespace negyedik_dia
 
             //ÖSSZEGZÉS PROG. TÉTEL
 
-            int[] szamok = { 3, 5, 7, 53, 12, 3446, 57, 4, 34 };
+            //int[] szamok = { 3, 5, 7, 53, 12, 3446, 57, 4, 34 };
 
-            int osszeg = 0;
+            //int osszeg = 0;
 
-            foreach (int szam in szamok)
-            {
-                osszeg += szam; //osszeg = osszeg+szam;
-            }
-            int tombHossza = szamok.Length;
-            double vegeredmeny = (double)osszeg / tombHossza;
-            Console.WriteLine(vegeredmeny);
-            Console.ReadKey();
+            //foreach (int szam in szamok)
+            //{
+            //    osszeg += szam; //osszeg = osszeg+szam;
+            //}
+            //int tombHossza = szamok.Length;
+            //double vegeredmeny = (double)osszeg / tombHossza;
+            //Console.WriteLine(vegeredmeny);
+            //Console.ReadKey();
+
+            //8. Feladat. Legyen a paraméter egy 100 és 9999 közé eső szám! Írasd ki a képernyőre a
+            //számjegyek összegét! A megoldáshoz használj ciklust!
+
+            //int a = Convert.ToInt32(Console.ReadLine());
+
+            //if (a > 100 && a < 9999)
+            //{
+            // jó a szám és mehet tovább a logika...
+            //}
+
+            //int szam;
+            //do
+            //{
+            //    szam = Convert.ToInt32(Console.ReadLine());
+            //} while (szam < 100 && szam > 9999); // rákényszeríted a FELHASZNÁLÓT, hogy amíg intervallumon kívül ad meg számot addig újra fusson a ciklusban a bekérés
+
         }
+
     }
 }
