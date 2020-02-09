@@ -43,6 +43,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sztringek", "sztringek\sztr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prog_tetelek", "Prog_tetelek\Prog_tetelek.csproj", "{C94D40C0-2DDB-42E7-A95A-6774019AC23B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "metodusok", "metodusok\metodusok.csproj", "{E90C1E96-18C1-49FB-96E7-9EAA9B03D8A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "metodus_feladatok", "metodus_feladatok\metodus_feladatok.csproj", "{EFAC5DB9-F0D7-40D2-9586-E7E31FC62D6B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -129,6 +133,14 @@ Global
 		{C94D40C0-2DDB-42E7-A95A-6774019AC23B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C94D40C0-2DDB-42E7-A95A-6774019AC23B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C94D40C0-2DDB-42E7-A95A-6774019AC23B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E90C1E96-18C1-49FB-96E7-9EAA9B03D8A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E90C1E96-18C1-49FB-96E7-9EAA9B03D8A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E90C1E96-18C1-49FB-96E7-9EAA9B03D8A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E90C1E96-18C1-49FB-96E7-9EAA9B03D8A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFAC5DB9-F0D7-40D2-9586-E7E31FC62D6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFAC5DB9-F0D7-40D2-9586-E7E31FC62D6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFAC5DB9-F0D7-40D2-9586-E7E31FC62D6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFAC5DB9-F0D7-40D2-9586-E7E31FC62D6B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
