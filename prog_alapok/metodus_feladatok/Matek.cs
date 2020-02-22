@@ -13,18 +13,32 @@ namespace metodus_feladatok
         /// </summary>
         /// <param name="kismacska">Tömb</param>
         /// <returns>Visszaadja a tömb elemeinek összegét</returns>
-        public int OsszegezTombElemeit(int[] kismacska) // paraméter blokktól blokkig él
+        //public int OsszegezTombElemeit(int[] kismacska) // paraméter blokktól blokkig él
+        //{
+        //    int osszeg = 0;
+
+        //    foreach (int szam in kismacska)
+        //    {
+        //        osszeg += szam;
+        //    }
+
+        //    return osszeg;
+        //}
+
+        // IDE AZ ÁTLAG TÉTEL
+        public double AtlagoldJegyeket(int[] jegyek)
         {
             int osszeg = 0;
 
-            foreach (int szam in kismacska)
+            foreach (int jegy in jegyek)
             {
-                osszeg += szam;
+                osszeg += jegy;
             }
 
-            return osszeg;
-        }
+            int darab = jegyek.Length;
+            double vegerdemeny = (double)osszeg / darab;
 
-        // IDE AZ ÁTLAG TÉTEL
+            return vegerdemeny;
+        }
     }
 }

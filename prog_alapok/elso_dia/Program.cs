@@ -100,7 +100,7 @@ diszkrimináns gyökét double típusú változóban tárold!*/
             Console.WriteLine($"A téglalap Területe {T}");
 
 
-            Console.ReadLine();
+            Console.ReadKey();
         }
     }
 }

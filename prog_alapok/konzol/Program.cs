@@ -12,7 +12,7 @@ namespace konzol
         {
             //Console.WriteLine("hello"); // kiir a konzolablakra + sört is tör
             // Console.Write(); // kiir a konzolablakra de nem tör sort
-            //            Console.ReadKey(); // bekérés, de csak egy karaktert vár
+            // Console.ReadKey(); // bekérés, de csak egy karaktert vár
             //Console.ReadLine(); // békérés, de ő karakterláncot
 
             // PÉLDÁK:

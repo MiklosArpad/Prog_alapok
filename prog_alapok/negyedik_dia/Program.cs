@@ -10,7 +10,7 @@ namespace negyedik_dia
     {
         static void Main()
         {
-            // 1. Feladat          // Írj programot, amely kiírja a felhasználó által adott összes paramétert!
+            // 1. Feladat  // Írj programot, amely kiírja a felhasználó által adott összes paramétert!
             //Segítség: a paraméterek számát az args tömb hosszából tudjuk meg, amit
             //az args.length hivatkozás ad meg.
 
