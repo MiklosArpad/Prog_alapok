@@ -69,7 +69,47 @@ namespace OKJ
                     break;
                 }
             }
+            // 5. feladat: Mely szervezetek kaptak béke Nobel-díjat 1990-től, napjainkig...
+            Console.WriteLine("5. feladat: ");
+            foreach (Nobel n in nobelDijasok)
+            {
+                if (n.Ev >= 1990 && n.Tipus == "béke" && n.Vezeteknev == "")
+                {
+                    Console.WriteLine(n.Ev + ": "+n.Keresztnev);
+                }
+            }
 
+            //6. feladat: Curie családból többen kaptak Nobel-díjat: kik, mikor és milyet?
+            Console.WriteLine("6. feladat: ");
+            foreach (Nobel n in nobelDijasok)
+            {
+                if (n.Vezeteknev.Contains("Curie"))
+                {
+                    Console.WriteLine(n.Ev + ": " + n.Keresztnev + " " + n.Vezeteknev + "(" + n.Tipus + ")");
+                    //Console.WriteLine("{0}: {1} {2}({3})", n.Ev, n.Keresztnev, n.Vezeteknev, n.Tipus);
+                    //Console.WriteLine($"{n.Ev}: {n.Keresztnev} {n.Vezeteknev} ({n.Tipus})");
+                }
+            }
+            // 8. feladat: Az összes orvosi Nobel-dijas évszámát és teljes nevét kiiratni fájlban
+            Console.WriteLine("6. feladat: ");
+
+            string tartalom = ""; //ez fog később feltöltődni az orvosok adataival, ezt én generálon
+
+            foreach (Nobel n in nobelDijasok)
+            {
+                if (n.Tipus == "orvosi") // rászűrűünk az orvosi nobel díjasokra
+                {
+                    // tartalomhoz mindig hozzáfűzöm az orvosi díjazott évét kettősponttal keresztnévvel szóközzel vezetéknévvel és sortöréssel
+                    tartalom += n.Ev + ":" + n.Keresztnev + " " + n.Vezeteknev + "\n"; // itt állítódik elő a tartalom, és a WriteAllText ezt
+                    // egy az egyben a memóriából kimásolja az orvosi.txt-be (szöveges állomány erőforrás)
+                }
+            }
+
+            // Fájlbaírás függvény:
+            //1. paraméter: hova és milyen néven hozzunk létre fájl, 
+            //2. paraméter: szöveges tartalom (string)
+            //3. paraméter: karakterkódolás
+            File.WriteAllText("../../orvosi.txt", tartalom, Encoding.UTF8);
 
             Console.ReadKey();
         }
