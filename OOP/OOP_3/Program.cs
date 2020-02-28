@@ -31,7 +31,7 @@ namespace OOP_3
 
 
             /* kiíratjuk az objektumainkat */
-            Console.WriteLine(bodri);
+            Console.WriteLine(bodri); // automatikusan ráfut a ToString() metódus és az adattagokat sorolja fel adott példány esetén
 
             bodri.teszt();
 
