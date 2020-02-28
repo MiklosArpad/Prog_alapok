@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{62F23088-0C4E-418F-AD80-0A4B19601488}</ProjectGuid>
+    <ProjectGuid>{F71EEF25-3823-48A0-84CC-72E858575A95}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>OOP_alapok</RootNamespace>
-    <AssemblyName>OOP_alapok</AssemblyName>
+    <RootNamespace>Nobel</RootNamespace>
+    <AssemblyName>Nobel</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,11 +43,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Nobel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="nobel.csv" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

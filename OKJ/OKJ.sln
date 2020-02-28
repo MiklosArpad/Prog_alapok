@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
-VisualStudioVersion = 16.0.29306.81
+VisualStudioVersion = 16.0.29509.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nobel", "OKJ\Nobel.csproj", "{09AB8700-DEF6-4E29-8EF1-3A5C6D3B172F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nobel", "Nobel\Nobel.csproj", "{F71EEF25-3823-48A0-84CC-72E858575A95}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kemia", "Kemia\Kemia.csproj", "{65745A8A-3ECD-4CCE-9C86-D12CD5AC6F7B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kemia", "Kemia\Kemia.csproj", "{2F0ADCE7-1A4E-410F-A786-A31EF3E41F1F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,19 +13,19 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{09AB8700-DEF6-4E29-8EF1-3A5C6D3B172F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{09AB8700-DEF6-4E29-8EF1-3A5C6D3B172F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{09AB8700-DEF6-4E29-8EF1-3A5C6D3B172F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{09AB8700-DEF6-4E29-8EF1-3A5C6D3B172F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{65745A8A-3ECD-4CCE-9C86-D12CD5AC6F7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{65745A8A-3ECD-4CCE-9C86-D12CD5AC6F7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{65745A8A-3ECD-4CCE-9C86-D12CD5AC6F7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{65745A8A-3ECD-4CCE-9C86-D12CD5AC6F7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F71EEF25-3823-48A0-84CC-72E858575A95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F71EEF25-3823-48A0-84CC-72E858575A95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F71EEF25-3823-48A0-84CC-72E858575A95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F71EEF25-3823-48A0-84CC-72E858575A95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F0ADCE7-1A4E-410F-A786-A31EF3E41F1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F0ADCE7-1A4E-410F-A786-A31EF3E41F1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F0ADCE7-1A4E-410F-A786-A31EF3E41F1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F0ADCE7-1A4E-410F-A786-A31EF3E41F1F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {5DD9ABD7-184E-46C9-9D9F-8303AB8F6803}
+		SolutionGuid = {AECA426F-6218-4905-A975-DA369E40FEF2}
 	EndGlobalSection
 EndGlobal

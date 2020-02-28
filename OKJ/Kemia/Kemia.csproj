@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{65745A8A-3ECD-4CCE-9C86-D12CD5AC6F7B}</ProjectGuid>
+    <ProjectGuid>{2F0ADCE7-1A4E-410F-A786-A31EF3E41F1F}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>Kemia</RootNamespace>
     <AssemblyName>Kemia</AssemblyName>

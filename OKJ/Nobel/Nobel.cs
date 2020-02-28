@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OKJ
+namespace Nobel
 {
     public class Nobel
     {

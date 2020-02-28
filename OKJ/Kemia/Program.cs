@@ -5,10 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
 namespace Kemia
-{ 
-
+{
     public class Program
     {
         public static void Main(string[] args)
@@ -21,10 +19,10 @@ namespace Kemia
             foreach (string sor in sorok)
             {
                 //Console.WriteLine(sor);
-                string[] adatok = sor.Split(';'); 
+                string[] adatok = sor.Split(';');
 
                 //PÉLDÁNYOSÍTÁS
-                Felfedezes felfedezes = new Felfedezes(); 
+                Felfedezes felfedezes = new Felfedezes();
 
                 // SETTELÉS A TÖMBBŐL
                 felfedezes.Ev = adatok[0]; // 

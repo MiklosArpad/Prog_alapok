@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO; // FÁJLHOZZÁFÉRÉSHEZ SZÜKSÉGES ELŐRE KÉSZ FÜGGVÉNYEK
 
-namespace OKJ
+namespace Nobel
 {
     public class Program
     {
@@ -75,7 +75,7 @@ namespace OKJ
             {
                 if (n.Ev >= 1990 && n.Tipus == "béke" && n.Vezeteknev == "")
                 {
-                    Console.WriteLine(n.Ev + ": "+n.Keresztnev);
+                    Console.WriteLine(n.Ev + ": " + n.Keresztnev);
                 }
             }
 
