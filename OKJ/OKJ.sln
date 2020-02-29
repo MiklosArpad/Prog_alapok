@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nobel", "Nobel\Nobel.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kemia", "Kemia\Kemia.csproj", "{2F0ADCE7-1A4E-410F-A786-A31EF3E41F1F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fuvar", "Fuvar\Fuvar.csproj", "{159A89F8-6277-4E51-9E89-CBC599364CF2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{2F0ADCE7-1A4E-410F-A786-A31EF3E41F1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F0ADCE7-1A4E-410F-A786-A31EF3E41F1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F0ADCE7-1A4E-410F-A786-A31EF3E41F1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{159A89F8-6277-4E51-9E89-CBC599364CF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{159A89F8-6277-4E51-9E89-CBC599364CF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{159A89F8-6277-4E51-9E89-CBC599364CF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{159A89F8-6277-4E51-9E89-CBC599364CF2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
