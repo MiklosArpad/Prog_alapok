@@ -8,14 +8,13 @@ namespace Forma1.repository
 {
     partial class Team : ITeamManageRacers
     {
-
         /// <summary>
         /// A csapat versenyzőinek listáját adja vissza
         /// </summary>
         /// <returns>A versenyzők neveinek listája</returns>
         public List<Racer> getRacers()
         {
-            return null;
+            return racers;
         }
         /// <summary>
         /// Megadja a csapatban lévő versenyzők számát
@@ -23,7 +22,7 @@ namespace Forma1.repository
         /// <returns>Csapatban lévő versenyzők száma</returns>
         public int getNumberOfRacers()
         {
-            return -1;
+            return racers.Count;
         }
 
         /// <summary>
@@ -32,7 +31,8 @@ namespace Forma1.repository
         /// <param name="r">új versenyző</param>
         /// <exception cref="TeamException">Két úgyan olyan versenyző nem lehet a csapatban</exception>
         public void addRacer(Racer r)
-        {           
+        {
+            racers.Add(r);
         }
 
         /// <summary>
@@ -42,7 +42,17 @@ namespace Forma1.repository
         /// <param name="name">Törlendő versenyző neve</param>
         /// <exception cref="TeamException">Ha a versenyző a csapatnak nem tagja, nem lehet törlni</exception>
         public void deleteRacer(string name, int age)
-        {            
+        {
+            foreach (Racer racer in racers)
+            {
+                if (racer.getName() == name && racer.getAge() == age)
+                {
+                    racers.Remove(racer);
+                    return;
+                }
+            }
+
+            throw new TeamException("Nincs ilyen versenyző!");
         }
 
         /// <summary>
@@ -53,6 +63,16 @@ namespace Forma1.repository
         /// <exception cref="TeamException">Ha a módosítandó versenyzőt nem találjuk, nem lehet módosítani</exception>
         public void updateRacer(string name, Racer newRacer)
         {
+            foreach (Racer racer in racers)
+            {
+                if (racer.getName() == name)
+                {
+                    racer.update(newRacer);
+                    return;
+                }
+            }
+
+            throw new TeamException("Nincs ilyen nevű versenyző!");
         }
 
        
@@ -64,6 +84,14 @@ namespace Forma1.repository
         /// <returns>Ha van, akkor a versenyző, ha nincs akkor null</returns>
         public Racer serchRacerByName(string racerName)
         {
+            foreach (Racer racer in racers)
+            {
+                if (racer.getName() == racerName)
+                {
+                    return racer;
+                }
+            }
+
             return null;
         }
 
@@ -75,6 +103,14 @@ namespace Forma1.repository
         /// <returns>Ha létezik, akkor true, ha nem akkor false</returns>
         public bool isRacerExist(string racerName, int racerAge)
         {
+            foreach (Racer racer in racers)
+            {
+                if (racer.getName() == racerName && racer.getAge() == racerAge)
+                {
+                    return true;
+                }
+            }
+
             return false;
         }
         

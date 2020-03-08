@@ -17,6 +17,7 @@ namespace Forma1.repository
         /// <param name="name">Az új csapat neve</param>
         public Team(string name)
         {
+            this.name = name;
             racers = new List<Racer>();
         }
         /// <summary>
@@ -25,7 +26,7 @@ namespace Forma1.repository
         /// <returns>A csapat neve</returns>
         public string getName()
         {
-            return "";
+            return name;
         }
         /// <summary>
         /// Csapat törlésének előkészítése
@@ -33,7 +34,7 @@ namespace Forma1.repository
         /// </summary>
         public void deleteAllRacersInTeam()
         {
-            
+            racers.Clear();
         }
         /// <summary>
         /// A csapat versenyzőinak összbére
@@ -41,14 +42,22 @@ namespace Forma1.repository
         /// <returns>Csapat bérkifezése</returns>
         public int getTeamSalary()
         {
-            return 0;
+            int osszeg = 0;
+
+            foreach (Racer racer in racers)
+            {
+                osszeg += racer.getSalary();
+            }
+
+            return osszeg;
         }
         /// <summary>
         /// Módosítja a csapat nevét
         /// </summary>
         /// <param name="newName">Csapat új neve</param>
         public void update(string newName)
-        {           
+        {
+            this.name = newName;
         }
         /// <summary>
         /// A csapat versenyzőinek nevének listája
@@ -57,6 +66,12 @@ namespace Forma1.repository
         public List<string> getRacerNames()
         {
             List<string> racerNamesList = new List<string>();
+
+            foreach (Racer racer in racers)
+            {
+                racerNamesList.Add(racer.getName());
+            }
+
             return racerNamesList;
         }
     }
