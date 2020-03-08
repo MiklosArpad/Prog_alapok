@@ -1,0 +1,10 @@
+﻿Feladatok:
+- Keresse meg a validation mappában lévő NameValidator osztályt. Az osztályban TDD módszerrel (előbb teszt, majd függvény) fejezze be az isFistLetterNotUppercase és isEmtyName függvények tesztjeit és a magukat a függvényeket
+- A Racer osztály konstuktorában a NameValidation osztállyal végezzen név ellenőrzést
+- A ropository rétegben fejlessze ki az F1 osztályban ott található existTeamName metódust, amely feladata megállapítani, hogy az adott nevű csapat létezik-e
+- A repository rétegben az F1 osztályban írja meg az ott található void update(string teamName, string newTeamName) metódust a kódban található leírás alapján
+- A service rétegben található addTeam(string teamName) metódus megírása a kódban található leírás alapján
+- Az F1 osztályban a getNumberOfRacers metódus befejezése. Ha a csapat létezik, akkor Team osztály segítségével adja meg hány tagja van. Ha nincs dobja a következő hibaüzenetet: teamName + " nevű csapat nem létezik, nem lehet megállapítani, hány versenyzője van."
+- A service rétegben a deleteTeam metódus megírása a kódban található leírás alapján
+- A controller rétegben a következő metódusok kifejlesztése a kódban megtalálható leírás alapján: addTeamToF1, modifyTeamName, deleteTeam
+- Fejlesztési lehetőségek: fizetés nem lehet negatív szám, életkor adott értékek közé eső pozitív szám kell legyen!

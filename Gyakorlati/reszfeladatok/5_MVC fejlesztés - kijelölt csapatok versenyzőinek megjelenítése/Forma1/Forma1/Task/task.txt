@@ -1,0 +1,6 @@
+﻿A projekt jelenlegi állapotában elkészült a repository réteg olyan állapotban, hogy teszt adatokat tudjon fogadni, és a többi réteg is használható állapotban van.
+A teszt adatok közül a Forma1 csapatok nevei megjelennek a megfelelő listában.
+Feladat, hogy jelenítse meg a kiválasztott csapathoz tartozó versenyzőket.
+A következő lépéseket valósítsa meg:
+ - user intefacen a csapat nevének kiválasztására esemény, amely megjeleníti a csapat nevét, és a csapathoz tartozó versenyzőket
+ - controller régetben public string getTeamName() és public List<string> getRacerNames(string teamName)

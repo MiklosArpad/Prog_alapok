@@ -18,7 +18,7 @@ namespace Fuvar
 
         public override string ToString()
         {
-            return $"{TaxiId} {Indulas} {Idotartam} {Tavolsag} {Viteldij} {Borravalo} {FizetesModja}";
+            return $"{TaxiId};{Indulas};{Idotartam};{Tavolsag};{Viteldij};{Borravalo};{FizetesModja}";
         }
     }
 }

@@ -1,0 +1,5 @@
+﻿A felületen megjelennek a tesztadatok. A feladat a team adatok kezelése a megszorítások mellett:
+-	új team felvitele (nevének megadásával)
+-	meglévő team nevének módosítása
+-	team törlése (csak ha nincsenek versenyzői)
+A megoldás során ellenőrizni kell, hogy a team-ek nevei nem ismétlődnek. Írjon függvényt a service modulban, amely a repository segítségével ellenőrzi, hogy egy adott nevű team létezik-e már!

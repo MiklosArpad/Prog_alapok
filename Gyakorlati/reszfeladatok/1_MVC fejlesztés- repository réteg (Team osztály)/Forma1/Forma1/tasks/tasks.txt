@@ -1,0 +1,7 @@
+﻿Team.cs
+1. public Team(string name)
+2. public string getName()
+3. public void deleteAllRacersInTeam()
+4. public int getTeamSalary()
+5. public void update(string newName)
+6. public List<string> getRacerNames()

@@ -1,0 +1,8 @@
+﻿F1RacerManagment.cs
+        public int getNumberOfRacers(string teamName)
+        public List<string> getRacerNameFromTheTeam(string teamName)
+        public int getNextRacerId()
+        public void addRacerToTeam(string teamName, Racer newRacer)
+        public int getRacerId(string teamName, string racerName)
+        public void updateReacerInTeam(string teamName, string oldRacerName, Racer newRacer)
+        public void deleteRacerInTeam(string teamName, string racerName, int racerAge)

@@ -1,0 +1,53 @@
+﻿A test adatok anomáliás adatokat tartalmaznak. Ezzeket a feladatokban loggolni kell!
+1. Racer osztályban:
+ - ToString metódus
+ - update metódus
+ - NameValidator bekötése konstruktorba és set metódusban (kivételdobás+outputra loggolás)
+2. Team
+ - konstruktor
+ - konstruktorban NameValidator (kivételdobás+outputra loggolás)
+ - deleteAllRacersInTeam
+ - ITeamSalary interface hozzárendelése és a szükséges metódus megírása
+ - update és getRacers metódusok megírása
+3. TeamManageRacers
+ - addRacer kivételdobással és outputra loggolás
+ - deleteRacer és updateRacer kivételdobással
+ - serchRacerByName, isRacerExist metóduseok
+4. F1
+ - konstruktor
+ - delete és update kivételdobással
+ - IF1Salary interface hozzárendelése és a szükséges metódusok megírása
+5. F1RacerManagment
+ - getNumberOfRacers
+ - getRacersFromTheTeam
+ - addRacerToTeam
+ - deleteRacerInTeam
+ - getNextRacerId
+ - getRacerId-ban kivétel írás
+ - existRacer és searchRacerByName
+6. TeamService
+  - deleteTeam
+7. TeamServiceRacerManagment
+   -moveToTeam
+8. Sajtá fejlesztés
+ - SalaryValidator és AgeValidator osztály kifejlesztése TDD módszerrel
+ - A két validátor bekötése a Racer osztály konstruktorába és set metódusaiba
+9. F1Controller
+ - addTeamToF1
+ - modifyTeamName
+10. F1ControllerRacerManagment
+ - addRacerToTeam
+ - updateRacerInTeam
+ - getTeamRacersName
+11. Forma1FormRacerManagment
+ - buttonAddRacer_Click
+ - buttonUpdateRacer_Click
+12.Forma1FormTeamManagment
+ - listBoxTeam_SelectedIndexChanged
+ - buttonAddTeam_Click
+
+13. F1 és csapat bérköltség, csapat átlagos bérköltsége
+ - rétegek segítségével a teljes funkció kifejlesztése
+
+
+

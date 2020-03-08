@@ -1,0 +1,3 @@
+﻿A projekt jelenlegi állapotában adva van a repository rétegben a tesztadatok. A user interfacen a teszt adatok betöltésére megjelennek a csapatok nevei, a csapat nevére kattintva a versenyzők.
+Feladat:
+ - A versenyző nevére kattintva jelenjenek meg szerkesztés céljából a versenyző adatai a megfelelő textboxban. Ehhez kell a user interfacen a listBoxRacer_SelectedIndexChanged függvényt javítani és a szükséges függvényeket megírni a különböző rétegekben!

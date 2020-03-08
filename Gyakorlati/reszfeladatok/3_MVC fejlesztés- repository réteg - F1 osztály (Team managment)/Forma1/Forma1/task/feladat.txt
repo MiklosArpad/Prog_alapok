@@ -1,0 +1,9 @@
+﻿F1.cs
+        public F1()
+        public List<Team> getTeams()
+        public void add(Team t)
+        public void delete(string teamName)
+        public void update(string teamName, string newTeamName)
+        public bool existTeamName(string teamName)
+        public bool existRacer(string racerName, int racerAge)
+        public Racer searchRacerByName(string teamName, string racerName)

@@ -1,0 +1,4 @@
+﻿A projekt jelenlegi állapotában adva van a repository rétegben a tesztadatok. A user interfacen a teszt adatok betöltésére megjelennek a csapatok nevei, a csapat nevére kattintva a versenyzők.
+Feladat:
+ - A F1 összes bérkifizetésének meghatározása
+ - A kiválasztott csapat összes bérkifizetésének megjelenítése
