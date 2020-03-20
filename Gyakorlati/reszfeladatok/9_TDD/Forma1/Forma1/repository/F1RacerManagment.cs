@@ -11,7 +11,14 @@ namespace Forma1.repository
     {
         public int getNumberOfRacers(string teamName)
         {
-            return 0;
+            foreach (Team t in teams)
+            {
+                if (t.getName() == teamName)
+                {
+                    return t.getNumberOfRacers();
+                }
+            }
+            throw new F1Exception(teamName + " nevű csapat nem létezik, nem lehet megállapítani, hány versenyzője van.");
         }
 
         public List<Racer> getRacersFromTheTeam(string teamName)

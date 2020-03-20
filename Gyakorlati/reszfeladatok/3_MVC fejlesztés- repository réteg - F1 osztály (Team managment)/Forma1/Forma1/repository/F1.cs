@@ -12,11 +12,13 @@ namespace Forma1.repository
     {
         List<Team> teams;
 
+
         /// <summary>
         /// Forma 1 konstruktor
         /// </summary>
         public F1()
-        {           
+        {
+            teams = new List<Team>();
         }
 
         /// <summary>
@@ -33,7 +35,8 @@ namespace Forma1.repository
         /// </summary>
         /// <param name="t">A csapat</param>
         public void add(Team t)
-        {            
+        {
+            teams.Add(t);
         }
 
         /// <summary>
@@ -42,8 +45,18 @@ namespace Forma1.repository
         /// </summary>
         /// <param name="teamName">A törlendő csapat neve</param>
         /// <exception cref="F1Exception">A csapat nem lézetik</exception>
-        public void delete(string teamName)
-        {           
+        public void delete(string teamName) // "Ferrari"
+        {      
+            foreach(Team t in teams)
+            {
+                if (t.getName()== teamName)
+                {
+                    t.deleteAllRacersInTeam();
+                    teams.Remove(t);
+                    return;
+                }
+            }
+            throw new F1Exception("A csapat nem lézetik");
         }
 
         /// <summary>
@@ -53,8 +66,17 @@ namespace Forma1.repository
         /// <param name="teamName">A csapat régi neve</param>
         /// <param name="newTeamName">A csapat új neve</param>
         /// <exception cref="F1Exception">A csapat nem lézetik</exception>
-        public void update(string teamName, string newTeamName)
+        public void update(string teamName, string newTeamName) // Ferrari, Alfa Romeo
         {
+            foreach (Team t in teams)
+            {
+                if(t.getName()== teamName)
+                {
+                    t.update(newTeamName);
+                    return;
+                }
+            }
+            throw new F1Exception("A csapat nem létezik");
         }
      
         /// <summary>
@@ -64,6 +86,13 @@ namespace Forma1.repository
         /// <returns>true ha van és false ha nincs</returns>
         public bool existTeamName(string teamName)
         {
+            foreach (Team t in teams)
+            {
+                if (t.getName() == teamName)
+                {
+                    return true;
+                }
+            }
             return false;
         }
 
@@ -75,6 +104,14 @@ namespace Forma1.repository
         /// <returns>true ha van és false ha nincs</returns>
         public bool existRacer(string racerName, int racerAge)
         {
+            foreach (Team t in teams)
+            {
+                if (t.isRacerExist(racerName, racerAge))
+                {
+                    return true;
+                }
+            }
+
             return false;
         }
 
@@ -88,7 +125,14 @@ namespace Forma1.repository
         /// <exception cref="F1Exception">A csapat nem lézetik adott nevű versenyzője</exception>
         public Racer searchRacerByName(string teamName, string racerName)
         {
-            return null;
+            foreach (Team team in teams)
+            {
+                if (team.getName() == teamName)
+                {
+                    return team.serchRacerByName(racerName);
+                }
+            }
+            throw new F1Exception("A csapat nem lézetik adott nevű versenyzője");
         }
 
         /// <summary>
@@ -98,6 +142,7 @@ namespace Forma1.repository
         public int getF1Salary()
         {
             int sum = 0;
+
             foreach (Team t in teams)
             {
                 sum = sum + t.getTeamSalary();

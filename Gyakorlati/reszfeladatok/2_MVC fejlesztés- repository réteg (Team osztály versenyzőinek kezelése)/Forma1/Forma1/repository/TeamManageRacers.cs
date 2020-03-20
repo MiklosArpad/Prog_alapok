@@ -32,8 +32,29 @@ namespace Forma1.repository
         /// <exception cref="TeamException">Két úgyan olyan versenyző nem lehet a csapatban</exception>
         public void addRacer(Racer r)
         {
+            foreach (Racer racer in racers)
+            {
+                // MINDEN EGYEZEIK
+                if (racer.getId() == r.getId() && racer.getName() == r.getName() && racer.getAge() == r.getAge() && racer.getSalary() == r.getSalary())
+                {
+                    throw new TeamException("Két úgyan olyan versenyző nem lehet a csapatban");
+                }
+            }
+
             racers.Add(r);
+
+            //foreach (Racer racer in racers)
+            //{
+            //    // MINDEN EGYEZEIK
+            //    if (racer.getId() != r.getId() && racer.getName() != r.getName() && racer.getAge() != r.getAge() && racer.getSalary() != r.getSalary())
+            //    {
+            //        racers.Add(r);
+            //        return;
+            //    }
+            //}
+            //throw new TeamException("Két úgyan olyan versenyző nem lehet a csapatban");
         }
+
 
         /// <summary>
         /// Törli a versenyzőt a csapatból
@@ -75,7 +96,7 @@ namespace Forma1.repository
             throw new TeamException("Nincs ilyen nevű versenyző!");
         }
 
-       
+
 
         /// <summary>
         /// Megkeresi az adott nevű versenyzőt
@@ -113,15 +134,23 @@ namespace Forma1.repository
 
             return false;
         }
-        
+
         /// <summary>
         /// Megadja az adott nevű versenyző azonosítóját
         /// </summary>
         /// <param name="racerName">Versenyző neve</param>
         /// <returns>A versenyző azonosítója</returns>
         public int getRacerId(string racerName)
-        {           
-            return -1;
+        {
+            foreach (Racer racer in racers)
+            {
+                if (racer.getName() == racerName)
+                {
+                    return racer.getId();
+                }
+            }
+
+            return 0;
         }
 
         /// <summary>
@@ -129,8 +158,20 @@ namespace Forma1.repository
         /// </summary>
         /// <returns>A legnagyobb azonosító</returns>
         public int getMaxId()
-        {           
-            return -1;
+        {
+            int maxID = 0;
+
+            foreach (Racer racer in racers)
+            {
+                if (maxID < racer.getId())
+                {
+                    maxID = racer.getId();
+                }
+            }
+
+            return maxID;
+
+            //racers.Max(x => x.getId()); lambda
         }
     }
 }

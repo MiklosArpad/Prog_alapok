@@ -1,4 +1,5 @@
-﻿using Forma1.MyException;
+﻿using Forma1.Model;
+using Forma1.MyException;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,6 +44,19 @@ namespace Forma1.Repository
             }
             throw new RepositoryException(teamName+" csapat nem létezik, nem lehet törölni");
 
+        }
+
+        public List<Racer> getTeamRacers(string teamName)
+        {
+            foreach (Team t in teams)
+            {
+                if (t.getName() == teamName)
+                {
+                    return t.getRacers();
+                }
+            }
+
+            throw new RepositoryException("Nincs ilyen csapat!");
         }
 
         public int getF1Salary()

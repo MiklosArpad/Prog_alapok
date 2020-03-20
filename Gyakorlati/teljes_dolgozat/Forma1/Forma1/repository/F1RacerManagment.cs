@@ -1,6 +1,7 @@
 ﻿    using Forma1.myexeption;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,8 +17,16 @@ namespace Forma1.repository
         /// <returns>A versenyzők száma</returns>
         /// <exception cref="F1Exception">A csapat nem létezik, nem lehet megállapítani, hány versenyzője van.</exception>
         public int getNumberOfRacers(string teamName)
-        {         
-            return 0;
+        {
+            foreach (Team team in teams)
+            {
+                if (team.getName() == teamName)
+                {
+                    return team.getNumberOfRacers();
+                }
+            }
+            throw new F1Exception("A csapat nem létezik, nem lehet megállapítani, hány versenyzője van.");
+
         }
         /// <summary>
         /// Az adott csapat versenyzőinek listája
@@ -25,7 +34,15 @@ namespace Forma1.repository
         /// <param name="teamName">A csapat neve</param>
         /// <returns>A versenyzők listája, ha nincs csapat akkor null</returns>
         public List<Racer> getRacersFromTheTeam(string teamName)
-        {
+        { 
+            foreach (Team team in teams)
+            {
+                if (team.getName()== teamName)
+                {
+                    return team.getRacers();
+                }
+            }
+
             return null;
         }
 
@@ -39,6 +56,23 @@ namespace Forma1.repository
         /// <exception cref="F1Exception">A csapat nem létezik (loggolni is)</exception>
         public void addRacerToTeam(string teamName, Racer newRacer)
         {
+            foreach (Team team in teams)
+            {
+                if (team.getName()==teamName)
+                {
+                    try
+                    {
+                        team.addRacer(newRacer);
+                    }
+                    catch (TeamException e)
+                    {
+                        Debug.WriteLine(e.Message);
+                        throw new F1Exception(e.Message);
+                    }
+                }
+            }
+            Debug.WriteLine("A csapat nem létezik");
+            throw new F1Exception("A csapat nem létezik");
         }
 
         /// <summary>
@@ -50,6 +84,15 @@ namespace Forma1.repository
         /// <exception cref="F1Exception">A csapat nem létezik, nem lehet törölni a versenyzőjét</exception>
         public void deleteRacerInTeam(string teamName, string racerName, int racerAge)
         {
+            foreach (Team team in teams)
+            {
+                if (team.getName() == teamName)
+                {
+                    team.deleteRacer(racerName, racerAge);
+                    return;
+                }
+            }
+            throw new F1Exception("A csapat nem létezik, nem lehet törölni a versenyzőjét");
         }
 
         /// <summary>
@@ -61,8 +104,24 @@ namespace Forma1.repository
         public int getNextRacerId()
         {
             int maxId = -1;
-            return maxId;
-        }        
+
+            foreach (Team t in teams)
+            {
+                if (maxId < t.getMaxId())
+                {
+                    maxId = t.getMaxId();
+                }
+            }
+
+            if (maxId > 0)
+            {
+                return 1;
+            }
+            else
+            {
+                return maxId + 1;
+            }
+        } 
 
         /// <summary>
         /// Az adott csapatban lévő versenyző ID-je
@@ -96,7 +155,7 @@ namespace Forma1.repository
             }
             throw new F1Exception(teamName + " nevű csapat nem létezik, nem lehet módosítani a versenyzőjének adatait.");
         }
-        
+
         /// <summary>
         /// Van-e adott versenyző
         /// </summary>
@@ -105,6 +164,13 @@ namespace Forma1.repository
         /// <returns>true ha van és false ha nincs</returns>
         public bool existRacer(string racerName, int racerAge)
         {
+            foreach (Team team in teams)
+            {
+                if (team.isRacerExist(racerName, racerAge))
+                {
+                    return true;
+                }
+            }
             return false;
         }
 

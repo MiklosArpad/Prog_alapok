@@ -14,21 +14,30 @@ namespace Forma1.validation
         {
             this.name = name;
         }
+
         public void validation()
         {
             if (isEmtyName())
-                throw new NameNotValidNameIsEmptyException("A név nem lehet üres!");
+                throw new NameNotValidNameIsEmptyException("A név nem lehet üres VAGY NULL!");
             if (isFistLetterNotUppercase())
                 throw new NameNotValidFirstLetterProblemException("A név nagy kezdőbetűvel kell kezdőjön!");
         }
 
         private bool isFistLetterNotUppercase()
         {
+            if (char.IsLower(name[0])) // "n"
+            {
+                return true;
+            }
             return false;
         }
 
         private bool isEmtyName()
         {
+            if (string.IsNullOrEmpty(name))
+            {
+                return true;
+            }
             return false;
         }
     }

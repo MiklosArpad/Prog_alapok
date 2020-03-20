@@ -1,4 +1,5 @@
-﻿using Forma1.Repository;
+﻿using Forma1.Model;
+using Forma1.Repository;
 using Forma1.Service;
 using System;
 using System.Collections.Generic;
@@ -25,15 +26,26 @@ namespace Forma1.Controller
         public List<string> getTeamNames()
         {
             List<Team> teams = service.getTeams();
-            List<string> teamNames=new List<string>();
-            foreach(Team t in teams)
+            List<string> teamNames = new List<string>();
+            foreach (Team t in teams)
             {
                 teamNames.Add(t.getName());
             }
             return teamNames;
-            
+
         }
 
+        public List<string> getRacerNames(string teamName)
+        {
+            List<Racer> racers = service.getTeamRacers(teamName);
 
+            List<string> csapatversenyzoi = new List<string>();
+            foreach (Racer r in racers)
+            {
+                csapatversenyzoi.Add(r.getName());
+            }
+
+            return csapatversenyzoi;
+        }
     }
 }

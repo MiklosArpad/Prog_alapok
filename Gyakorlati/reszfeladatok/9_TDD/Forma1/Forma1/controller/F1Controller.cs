@@ -53,8 +53,28 @@ namespace Forma1.controller
         /// <param name="teamName">A csapat</param>
         /// <exeption>ControllerException</exeption>
 
-        public void addTeamToF1(string teamName)
-        {            
+        public void addTeamToF1(string teamName) // textBoxTeamName.Text; -> ferraro
+        {
+            if (teamService.existTeamName(teamName))
+            {
+                throw new ControllerException("Ilyen csapat már van ilyen névvel, nem lehet az F1-hez hozzá adni ");
+            }
+
+            try
+            {
+                NameValidator nv = new NameValidator(teamName);
+                nv.validation();
+            }
+            catch (NameNotValidNameIsEmptyException ex)
+            {
+                throw new ControllerException(ex.Message);
+            }
+            catch (NameNotValidFirstLetterProblemException ex)
+            {
+                throw new ControllerException(ex.Message);
+            }
+
+            teamService.addTeam(teamName);
         }
 
         /// <summary>
@@ -69,6 +89,31 @@ namespace Forma1.controller
         /// <exeption>ControllerException</exeption>
         public void modifyTeamName(string oldTeamName, string newTeamName)
         {
+            if (teamService.existTeamName(newTeamName))
+            {
+                throw new ControllerException("Olyan névre akarod átnevezni, amilyen nevű csapat már van!");
+            }
+
+            try
+            {
+                NameValidator nv = new NameValidator(newTeamName);
+                nv.validation();
+            }
+            catch (NameNotValidNameIsEmptyException e)
+            {
+                throw new ControllerException(e.Message);
+            }
+            catch(NameNotValidFirstLetterProblemException e)
+            {
+                throw new ControllerException(e.Message);
+            }
+            catch(TeamServiceExeption e)
+            {
+                throw new ControllerException(e.Message);
+            }
+
+            teamService.modifyTeamName(oldTeamName, newTeamName);
+
         }
 
         /// <summary>
@@ -78,7 +123,30 @@ namespace Forma1.controller
         /// </summary>
         /// <param name="teamNameToDelete">A törlendő csapat neve</param>
         public void deleteTeam(string teamNameToDelete)
-        {           
+        {
+            if (!teamService.existTeamName(teamNameToDelete))
+            {
+                throw new ControllerException("Nem létezik a csapat");
+            }
+
+            teamService.deleteTeam(teamNameToDelete);
+
+            //if (teamService.existTeamName(teamNameToDelete))
+            //{
+            //    teamService.deleteTeam(teamNameToDelete);
+            //    return;
+            //}
+            //throw new ControllerException("Nem létezik a csapat");
+
+
+            //if (teamService.existTeamName(teamNameToDelete))
+            //{
+            //    teamService.deleteTeam(teamNameToDelete);
+            //}
+            //else
+            //{
+            //    throw new ControllerException("Nem létezik a csapat");
+            //}
         }
 
         /// <summary>

@@ -26,12 +26,30 @@ namespace Forma1.repository
         /// <exception cref="RacerException">A név üres</exception>
         /// <exception cref="RacerException">A név első betűje nem nagybetű</exception>
         /// <exception cref=""
-        public Racer(int id, string name, int age,int salary)
+        public Racer(int id, string name, int age, int salary) // 1, "", 30, 140
         {
+            try
+            {
+                NameValidator nv = new NameValidator(name);
+                nv.validation();
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+
+            if (age > 0)
+            {
+                this.age = age;
+            }
+
             this.id = id;
             this.name = name;
-            this.age = age;
-            this.salary = salary;
+
+            if (salary > 0)
+            {
+                this.salary = salary;
+            }
         }
 
         public void setName(string name)
@@ -41,12 +59,18 @@ namespace Forma1.repository
 
         public void setAge(int age)
         {
-            this.age = age;
+            if (age > 0)
+            {
+                this.age = age;
+            }
         }
 
         public void setSalary(int salary)
         {
-            this.salary = salary;
+            if (salary > 0)
+            {
+                this.salary = salary;
+            }
         }
 
         public string getName()

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace Forma1.repository
 {
@@ -15,8 +16,24 @@ namespace Forma1.repository
         private int age;
         private int salary;
 
-        public Racer(int id, string name, int age,int salary)
-        {            
+        public Racer(int id, string name, int age, int salary)
+        {
+            try
+            {
+                NameValidator nv = new NameValidator(name);
+                nv.validation();
+            }
+            catch (NameNotValidNameIsEmptyException ex)
+            {
+                Debug.WriteLine(ex.Message);
+                throw new RacerException(ex.Message);
+            }
+            catch (NameNotValidFirstLetterProblemException ex)
+            {
+                Debug.WriteLine(ex.Message);
+                throw new RacerException(ex.Message);
+            }
+
             this.id = id;
             this.name = name;
             this.age = age;
@@ -25,6 +42,22 @@ namespace Forma1.repository
 
         public void setName(string name)
         {
+            try
+            {
+                NameValidator nv = new NameValidator(name);
+                nv.validation();
+            }
+            catch (NameNotValidNameIsEmptyException ex)
+            {
+                Debug.WriteLine(ex.Message);
+                throw new RacerException(ex.Message);
+            }
+            catch (NameNotValidFirstLetterProblemException ex)
+            {
+                Debug.WriteLine(ex.Message);
+                throw new RacerException(ex.Message);
+            }
+
             this.name = name;
         }
 
@@ -59,7 +92,21 @@ namespace Forma1.repository
         }
 
         public void update(Racer racer)
-        {            
+        {
+            this.id = racer.getId();
+            this.name = racer.getName();
+            this.age = racer.getAge();
+            this.salary = racer.getSalary();
+
+            //this.id = racer.id;
+            //this.name = racer.name;
+            //this.age = racer.age;
+            //this.salary = racer.age;
+        }
+
+        public override string ToString()
+        {
+            return $"{id} {name} {age} {salary}";
         }
     }
 }

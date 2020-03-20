@@ -47,5 +47,35 @@ namespace Forma1
             textBoxRacerAge.Text = selectedRacer.getAge().ToString();
             textBoxRacerSalary.Text = selectedRacer.getSalary().ToString();
         }
+
+        private void ButtonAddTeam_Click(object sender, EventArgs e)
+        {
+            string teamName = textBoxTeamName.Text;
+            controller.HozzaadCsapat(teamName);
+
+            listBoxTeam.DataSource = null;
+            listBoxTeam.DataSource = controller.getTeamNames();
+        }
+
+        private void ButtonUpdateTeam_Click(object sender, EventArgs e)
+        {
+            string oldTeamName = listBoxTeam.SelectedItem.ToString(); // régi csapatnév
+            string newTeamName = textBoxTeamName.Text; // új csapatnév
+
+            controller.ModositCsapat(oldTeamName, newTeamName);
+
+            listBoxTeam.DataSource = null;
+            listBoxTeam.DataSource = controller.getTeamNames();
+        }
+
+        private void ButtonDeleteTeam_Click(object sender, EventArgs e)
+        {
+            string teamName = listBoxTeam.SelectedItem.ToString();
+
+            controller.TorolCsapat(teamName);
+
+            listBoxTeam.DataSource = null;
+            listBoxTeam.DataSource = controller.getTeamNames();
+        }
     }
 }

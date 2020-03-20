@@ -18,6 +18,11 @@ namespace Forma1.Repository
             racers = new List<Racer>();
         }
 
+        public List<Racer> getRacers()
+        {
+            return racers;
+        }
+
         public string getName()
         {
             return name;

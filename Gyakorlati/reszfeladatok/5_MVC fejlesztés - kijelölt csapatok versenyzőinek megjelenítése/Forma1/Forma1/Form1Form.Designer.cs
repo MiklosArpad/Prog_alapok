@@ -127,6 +127,7 @@
             this.listBoxTeam.Name = "listBoxTeam";
             this.listBoxTeam.Size = new System.Drawing.Size(155, 329);
             this.listBoxTeam.TabIndex = 8;
+            this.listBoxTeam.SelectedIndexChanged += new System.EventHandler(this.ListBoxTeam_SelectedIndexChanged);
             // 
             // buttonDeleteRacer
             // 

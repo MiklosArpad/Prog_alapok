@@ -76,6 +76,7 @@
             this.buttonDeleteTeam.TabIndex = 14;
             this.buttonDeleteTeam.Text = "Töröl";
             this.buttonDeleteTeam.UseVisualStyleBackColor = true;
+            this.buttonDeleteTeam.Click += new System.EventHandler(this.ButtonDeleteTeam_Click);
             // 
             // buttonUpdateTeam
             // 
@@ -85,6 +86,7 @@
             this.buttonUpdateTeam.TabIndex = 13;
             this.buttonUpdateTeam.Text = "Módosít";
             this.buttonUpdateTeam.UseVisualStyleBackColor = true;
+            this.buttonUpdateTeam.Click += new System.EventHandler(this.ButtonUpdateTeam_Click);
             // 
             // buttonAddTeam
             // 
@@ -94,6 +96,7 @@
             this.buttonAddTeam.TabIndex = 12;
             this.buttonAddTeam.Text = "Hozzáad";
             this.buttonAddTeam.UseVisualStyleBackColor = true;
+            this.buttonAddTeam.Click += new System.EventHandler(this.ButtonAddTeam_Click);
             // 
             // labelTeamName
             // 

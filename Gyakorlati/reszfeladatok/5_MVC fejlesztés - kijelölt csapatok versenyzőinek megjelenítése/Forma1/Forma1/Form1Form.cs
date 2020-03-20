@@ -14,6 +14,7 @@ namespace Forma1
     public partial class Form1Form : Form
     {
         F1Controller controller;
+
         public Form1Form()
         {
             controller = new F1Controller();
@@ -24,6 +25,12 @@ namespace Forma1
         {
             controller.provideTestData();
             listBoxTeam.DataSource = controller.getTeamNames();
+        }
+
+        private void ListBoxTeam_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string teamName = listBoxTeam.SelectedItem.ToString();
+            listBoxRacer.DataSource = controller.getRacerNames(teamName);
         }
     }
 }

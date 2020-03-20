@@ -35,5 +35,36 @@ namespace Forma1.Service
         {
             return forma1Repository.searchRacerByName(teamName, racerName);
         }
+
+        internal void HozzaadCsapat(string teamName)
+        {
+            if (forma1Repository.LetezoCsapatE(teamName)) // ha a függvény true-t ad vissza, akkor fut az if-be
+            {
+                throw new Exception("Csapat már létezik!");
+            }
+
+            Team team = new Team(teamName);
+            forma1Repository.add(team);
+        }
+
+        internal void ModositCsapat(string oldTeamName, string newTeamName)
+        {
+            if (forma1Repository.LetezoCsapatE(newTeamName)) // ha a függvény true-t ad vissza, akkor fut az if-be
+            {
+                throw new Exception("Csapat már létezik!");
+            }
+
+            forma1Repository.update(oldTeamName, newTeamName);
+        }
+
+        internal void TorolCsapat(string teamName)
+        {
+            if (forma1Repository.VanEBenneVersenyzo(teamName))
+            {
+                throw new Exception("Van benne versenyző, nem törölhető a csapat!");
+            }
+
+            forma1Repository.delete(teamName);
+        }
     }
 }

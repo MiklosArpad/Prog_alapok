@@ -38,6 +38,8 @@ namespace Forma1.service
         /// <param name="teamName">A létrehozandó csapat neve</param>
         public void addTeam(string teamName)
         {
+            Team t = new Team(teamName);
+            f1Repository.add(t);
         }
         
         /// <summary>
@@ -64,9 +66,19 @@ namespace Forma1.service
         /// Ha a csapatnak nincs versenyzője törölje a csapatot. Ha van a csapatnak van tagja, akkor dobjon kivételt.
         /// </summary>
         /// <param name="teamNameToDelete"></param>
-        public void deleteTeam(string teamNameToDelete)
+        public void deleteTeam(string teamNameToDelete) //"Ferrari"
         {
-            int numberOfRacer = f1Repository.getNumberOfRacers(teamNameToDelete);
+            int numberOfRacer = 0;
+            try
+            {
+                numberOfRacer = f1Repository.getNumberOfRacers(teamNameToDelete); // "Ferrari"
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
             if (numberOfRacer > 0)
                 throw new TeamServiceExeption(teamNameToDelete + " csapatnak van még versenyzője, nem lehet törölni!");
             else

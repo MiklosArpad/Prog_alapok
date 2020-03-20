@@ -59,7 +59,17 @@ namespace Forma1.repository
         /// <param name="teamName">A csapat régi neve</param>
         /// <param name="newTeamName">A csapat új neve</param>
         public void update(string teamName, string newTeamName)
-        {          
+        {
+            foreach (Team t in teams)
+            {
+                if (t.getName() == teamName)
+                {
+                    t.update(newTeamName);
+                    return;
+                }
+            }
+
+            throw new F1Exception("Nincs ilyen csapat");
         }
 
         /// <summary>
@@ -92,6 +102,13 @@ namespace Forma1.repository
         /// <returns>true ha van és false ha nincs</returns>
         public bool existTeamName(string teamName)
         {
+            foreach (Team t in teams)
+            {
+                if(t.getName()==teamName)
+                {
+                    return true;
+                }
+            }
             return false;
         }
 

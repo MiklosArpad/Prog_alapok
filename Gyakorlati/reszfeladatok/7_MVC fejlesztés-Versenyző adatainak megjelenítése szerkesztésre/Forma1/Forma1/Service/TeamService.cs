@@ -30,5 +30,10 @@ namespace Forma1.Service
         {
             return forma1Repository.getRacers(teamName);
         }
+
+        public Racer searchRacerByName(string teamName, string racerName)
+        {
+            return forma1Repository.searchRacerByName(teamName, racerName);
+        }
     }
 }

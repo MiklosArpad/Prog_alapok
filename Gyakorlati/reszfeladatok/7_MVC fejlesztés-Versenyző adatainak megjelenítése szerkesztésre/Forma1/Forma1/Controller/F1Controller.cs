@@ -45,5 +45,11 @@ namespace Forma1.Controller
             return racerNames;
 
         }
+
+        public Racer searchRacerByName(string teamName, string racerName)
+        {
+            return service.searchRacerByName(teamName, racerName);
+            
+        }
     }
 }

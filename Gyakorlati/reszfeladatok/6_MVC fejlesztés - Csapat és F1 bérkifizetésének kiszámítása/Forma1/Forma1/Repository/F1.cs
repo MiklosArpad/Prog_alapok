@@ -46,6 +46,19 @@ namespace Forma1.Repository
 
         }
 
+        internal int getTeamSalary(string teamName)
+        {
+            foreach (Team t in teams)
+            {
+                if (t.getName() == teamName)
+                {
+                    return t.getTeamSalary();
+                }
+            }
+
+            return 0;
+        }
+
         public List<Racer> getRacers(string teamName)
         {
             foreach(Team t in teams)

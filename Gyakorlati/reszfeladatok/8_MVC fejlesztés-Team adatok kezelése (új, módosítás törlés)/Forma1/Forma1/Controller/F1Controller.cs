@@ -50,5 +50,20 @@ namespace Forma1.Controller
         {
             return service.searchRacerByName(teamName, racerName);
         }
+
+        internal void HozzaadCsapat(string teamName)
+        {
+            service.HozzaadCsapat(teamName);
+        }
+
+        internal void ModositCsapat(string oldTeamName, string newTeamName)
+        {
+            service.ModositCsapat(oldTeamName, newTeamName);
+        }
+
+        internal void TorolCsapat(string teamName)
+        {
+            service.TorolCsapat(teamName);
+        }
     }
 }

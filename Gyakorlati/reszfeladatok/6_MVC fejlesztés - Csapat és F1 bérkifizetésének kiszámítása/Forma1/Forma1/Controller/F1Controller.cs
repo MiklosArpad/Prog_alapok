@@ -45,5 +45,16 @@ namespace Forma1.Controller
             return racerNames;
 
         }
+
+        public int F1OsszesBer()
+        {
+            return service.F1OsszesBer();
+            
+        }
+
+        public int CsapatOsszesBer(string teamName)
+        {
+            return service.CsapatOsszesBer(teamName);
+        }
     }
 }

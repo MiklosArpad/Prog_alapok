@@ -42,6 +42,14 @@ namespace Forma1.Repository
             throw new RepositoryException(nameToModify + " versenyző nincs a csapatban, ezért nem lehet módosítani az adatait.");
         }
 
-
+        public Racer searchRacerByName(string racerName)
+        {
+            foreach(Racer r in racers)
+            {
+                if (r.getName() == racerName)
+                    return r;
+            }
+            throw new RepositoryException(racerName + " versenyző nincs a csapatban");
+        }
     }
 }

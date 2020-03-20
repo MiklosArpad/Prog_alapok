@@ -30,5 +30,15 @@ namespace Forma1.Service
         {
             return forma1Repository.getRacers(teamName);
         }
+
+        public int F1OsszesBer()
+        {
+            return forma1Repository.getF1Salary();
+        }
+
+        internal int CsapatOsszesBer(string teamName)
+        {
+            return forma1Repository.getTeamSalary(teamName);
+        }
     }
 }

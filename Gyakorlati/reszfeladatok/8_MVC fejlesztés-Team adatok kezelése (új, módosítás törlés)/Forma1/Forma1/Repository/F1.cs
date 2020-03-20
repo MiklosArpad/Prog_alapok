@@ -29,6 +29,19 @@ namespace Forma1.Repository
             teams.Add(t);
         }
 
+        public bool VanEBenneVersenyzo(string teamName)
+        {
+            foreach (Team t in teams)
+            {
+                if (t.getRacers().Count != 0)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         public void delete(string teamName)
         {
             int index = 0;
@@ -44,6 +57,19 @@ namespace Forma1.Repository
             }
             throw new RepositoryException(teamName+" csapat nem létezik, nem lehet törölni");
 
+        }
+
+        public bool LetezoCsapatE(string teamName)
+        {
+            foreach(Team t in teams)
+            {
+                if (t.getName()== teamName)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         public Racer searchRacerByName(string teamName, string racerName)

@@ -20,6 +20,12 @@ namespace Forma1.repository
             racers = new List<Racer>();
             this.name = name;
         }
+
+        public List<Racer> GetRacers()
+        {
+            return racers;
+        }
+
         /// <summary>
         /// getter
         /// </summary>
@@ -43,7 +49,7 @@ namespace Forma1.repository
         public int getTeamSalary()
         {
             int salary = 0;
-            foreach(Racer r in racers)
+            foreach (Racer r in racers)
             {
                 salary += salary;
             }

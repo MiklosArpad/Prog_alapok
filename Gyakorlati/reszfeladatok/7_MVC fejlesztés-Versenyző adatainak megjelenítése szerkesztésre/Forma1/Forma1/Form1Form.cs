@@ -1,4 +1,5 @@
 ﻿using Forma1.Controller;
+using Forma1.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -39,12 +40,15 @@ namespace Forma1
         {
             if (listBoxTeam.SelectedIndex < 0 || listBoxRacer.SelectedIndex<0)
                 return;
+
             string teamName = listBoxTeam.SelectedItem.ToString();
             string racerName = listBoxRacer.SelectedItem.ToString();
+
             Racer r = controller.searchRacerByName(teamName, racerName);
-            textBoxRacerName.Text = "";
-            textBoxRacerAge.Text = "";
-            textBoxRacerSalary.Text = "";
+
+            textBoxRacerName.Text = r.getName();
+            textBoxRacerAge.Text = r.getAge().ToString();
+            textBoxRacerSalary.Text = r.getSalary().ToString();
         }
     }
 }

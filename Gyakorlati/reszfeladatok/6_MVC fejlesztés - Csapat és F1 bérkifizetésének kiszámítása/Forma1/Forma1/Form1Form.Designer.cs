@@ -271,6 +271,7 @@
             this.buttonComputeTeamSalary.TabIndex = 30;
             this.buttonComputeTeamSalary.Text = "Csapat össz bérkifeizetése:";
             this.buttonComputeTeamSalary.UseVisualStyleBackColor = true;
+            this.buttonComputeTeamSalary.Click += new System.EventHandler(this.ButtonComputeTeamSalary_Click);
             // 
             // textBoxTeamSalary
             // 
@@ -288,6 +289,7 @@
             this.buttonComputeF1Salary.TabIndex = 32;
             this.buttonComputeF1Salary.Text = "F1 össz bérkifeizetése:";
             this.buttonComputeF1Salary.UseVisualStyleBackColor = true;
+            this.buttonComputeF1Salary.Click += new System.EventHandler(this.ButtonComputeF1Salary_Click);
             // 
             // textBoxF1Salary
             // 
