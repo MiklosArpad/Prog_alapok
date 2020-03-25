@@ -81,7 +81,15 @@
     <Compile Include="repository\TestData.cs" />
     <Compile Include="service\TeamService.cs" />
     <Compile Include="service\TeamServiceRacerManagment.cs" />
+    <Compile Include="myexeption\AgeIsNegativeException.cs" />
+    <Compile Include="myexeption\AgeIsZeroException.cs" />
+    <Compile Include="myexeption\AgeIsUnderMinimumException.cs" />
+    <Compile Include="myexeption\AgeIsOverMaximumException.cs" />
+    <Compile Include="validation\AgeValidator.cs" />
     <Compile Include="validation\NameValidator.cs" />
+    <Compile Include="myexeption\SalaryIsZeroException.cs" />
+    <Compile Include="myexeption\SalaryIsNegativeException.cs" />
+    <Compile Include="validation\SalaryValidator.cs" />
     <EmbeddedResource Include="Form1Form.resx">
       <DependentUpon>Form1Form.cs</DependentUpon>
     </EmbeddedResource>

@@ -68,6 +68,23 @@ namespace Forma1.service
         /// <param name="teamNameToDelete"></param>
         public void deleteTeam(string teamNameToDelete)
         {
+            try
+            {
+                if (f1Repository.vanEVersenyzoACsapatban(teamNameToDelete))
+                {
+                    throw new TeamServiceExeption("Van versdenyző a csapatban!");
+                }
+
+                f1Repository.delete(teamNameToDelete);
+            }
+            catch (F1Exception e)
+            {
+                throw new TeamServiceExeption(e.Message);
+            }
+            catch (TeamServiceExeption e)
+            {
+                throw new TeamServiceExeption(e.Message);
+            }
         }
 
         /// <summary>

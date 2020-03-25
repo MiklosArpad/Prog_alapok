@@ -114,5 +114,23 @@ namespace Forma1.repository
 
             throw new TeamException("Nincs meg a csapat, tehát valszeg nincsen fizetéswe egy nem létező csapatnak");
         }
+
+        public bool vanEVersenyzoACsapatban(string teamName)
+        {
+            try
+            {
+                if (getNumberOfRacers(teamName) > 0)
+                {
+                    return true;
+                }
+
+                return false;
+            }
+            catch (F1Exception e)
+            {
+
+                throw new F1Exception(e.Message);
+            }
+        }
     }
 }

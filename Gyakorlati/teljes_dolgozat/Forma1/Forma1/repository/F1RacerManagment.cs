@@ -182,8 +182,15 @@ namespace Forma1.repository
         /// <returns>A versenyző</returns>
         /// <exception cref="F1Exception">Az adott nevű csapat nem létezik.</exception>
         public Racer searchRacerByName(string teamName, string racerName)
-        {
-            return null;
+        { 
+            foreach (Team team in teams)
+            {
+                if (team.getName()== teamName)
+                {
+                    return team.serchRacerByName(racerName);
+                }
+            }
+            throw new F1Exception("Az adott nevű csapat nem létezik");
         }
     }
 }

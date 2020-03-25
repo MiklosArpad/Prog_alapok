@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Forma1.myexeption;
 using Forma1.repository;
 
 namespace Forma1.service
@@ -87,6 +87,19 @@ namespace Forma1.service
         /// <param name="movedRacerName">A versenyző neve</param>
         public void moveToTeam(string fromTeamName, string toTeamName, string movedRacerName)
         {
+            try
+            {
+                Racer r = f1Repository.searchRacerByName(fromTeamName, movedRacerName);
+
+                f1Repository.addRacerToTeam(toTeamName, r);
+                f1Repository.deleteRacerInTeam(fromTeamName, r.getName(), r.getAge());
+            }
+            catch (F1Exception e)
+            {
+
+                throw new TeamServiceExeption(e.Message);
+            }
+
         }
 
         /// <summary>
