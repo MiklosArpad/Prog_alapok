@@ -1,5 +1,6 @@
 ﻿using Forma1.myexeption;
 using Forma1.repository;
+using Forma1.validation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +26,112 @@ namespace Forma1.controller
         /// <param name="racerSalary">A versenyző bérköltsége</param>
         public void addRacerToTeam(string teamName, string racerName, string racerAge, string racerSalary)
         {
+            // GUI csak stringben tárol le adatot: ERGÓ a számokat is!
+            // Controller feladata a stringben tárolt számadatokat (racerAge, racerSalary) átkonvetárlni!!!!
+
+            // 1. lépés: Ellenörizze, hogy az argumentumbeli számadadok megfelelő formátumuak-e, ha nem dobjon kivételt
+
+            //1. megoldás: TryParse-szal:
+            //
+            //int mibeMentjukElAKonvertáltErteket = Convert.ToInt32(racerAge);
+            // deklarálom az integert, amibe a Convert.ToInt32() függvény a stringet belekonvertálja int-re!!
+            //if (!int.TryParse(racerAge, out int integerRacegAge)) // true -> ha sikeül a racerAge (string paramétert) belekonvertálni az out-tal kifele jövő int tiususú változóba
+            //{
+            //    
+            //    throw new ControllerException("Nem sikerült az életkort átkonvertálni!");
+            //}
+            //if (!int.TryParse(racerSalary, out int integerRacegSalary)) // true -> ha sikeül a racerAge (string paramétert) belekonvertálni az out-tal kifele jövő int tiususú változóba
+            //{
+            //    // int integerRacegSalary = Convert.ToInt32(racerSalary);
+            //    throw new ControllerException("Nem sikerült a fizetzést átkonvertálni!");
+            //}
+
+            //2. megoldás Convert osztállyal:
+            //
+
+            int integerRacerAge;
+            int integerRacerSalary;
+
+            try
+            {
+                integerRacerAge = Convert.ToInt32(racerAge); // 3o
+
+            }
+            catch (Exception ex)
+            {
+                throw new ControllerException(ex.Message);
+            }
+
+            try
+            {
+                integerRacerSalary = Convert.ToInt32(racerSalary);
+            }
+            catch (Exception ex)
+            {
+                throw new ControllerException(ex.Message);
+            }
+
+
+            // ha idáig eljutunk akkor sikerült a két számadatot integerrel konvertálni!
+
+            // 2. lépés: NameValidator, AgeValidator és SalaryValidatorral ellenörizze az adatokat. Ha valamelyik nem jó, dobjon kivételt
+
+            try
+            {
+                NameValidator nv = new NameValidator(racerName);
+                nv.validation();
+            }
+            catch (Exception e)
+            {
+
+                throw new ControllerException(e.Message);
+            }
+
+            try
+            {
+                AgeValidator av = new AgeValidator(integerRacerAge);
+                av.validation();
+            }
+            catch (Exception e)
+            {
+
+                throw new ControllerException(e.Message);
+            }
+            try
+            {
+                SalaryValidator sv = new SalaryValidator(integerRacerSalary);
+                sv.validation();
+            }
+            catch (Exception e)
+            {
+
+                throw new ControllerException(e.Message);
+            }
+
+
+            if (teamService.existRacer(racerName, integerRacerAge))
+            {
+                throw new ControllerException("Ez a versenyő mér létezik!");
+            }
+
+
+            int nextID = teamService.getNextRacerId();
+
+            Racer racer;
+
+            try
+            {
+                racer = new Racer(nextID, racerName, integerRacerAge, integerRacerSalary);
+            }
+            catch (Exception e)
+            {
+
+                throw new ControllerException(e.Message);
+            }
+
+            teamService.addReacerToTeam(teamName, racer);
+
+
         }
 
         /// <summary>
@@ -44,8 +151,45 @@ namespace Forma1.controller
             int racerSalaryNumber = 0;
             if (!int.TryParse(racerSalary, out racerSalaryNumber))
                 throw new ControllerException("A megadott fizetés nem megfelelő alakú szám!");
+
+
             if (teamService.existRacer(racerName, racerAgeNumber))
                 throw new ControllerException("Már létezik " + racerName + " nevű versenyző, aki " + racerAge + " éves.");
+
+            // VALIDÁCIÓ
+
+            try
+            {
+                NameValidator nv = new NameValidator(racerName);
+                nv.validation();
+            }
+            catch (Exception e)
+            {
+
+                throw new ControllerException(e.Message);
+            }
+
+            try
+            {
+                AgeValidator av = new AgeValidator(racerAgeNumber);
+                av.validation();
+            }
+            catch (Exception e)
+            {
+
+                throw new ControllerException(e.Message);
+            }
+            try
+            {
+                SalaryValidator sv = new SalaryValidator(racerSalaryNumber);
+                sv.validation();
+            }
+            catch (Exception e)
+            {
+
+                throw new ControllerException(e.Message);
+            }
+
             try
             {
                 int racerId = teamService.getRacerId(teamName, oldRacerName);
@@ -97,7 +241,16 @@ namespace Forma1.controller
         /// <returns></returns>
         public List<string> getTeamRacersName(string teamName)
         {
-            return null;
+            List<Racer> racers = teamService.getRacerFromTheTeam(teamName);
+
+            List<string> racerNames = new List<string>();
+
+            foreach (Racer r in racers)
+            {
+                racerNames.Add(r.getName());
+            }
+
+            return racerNames;
         }
 
         /// <summary>

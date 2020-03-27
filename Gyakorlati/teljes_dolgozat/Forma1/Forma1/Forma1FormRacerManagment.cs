@@ -39,7 +39,39 @@ namespace Forma1
         /// Ha hibát kap el hozzáadás során, jelenítse meg az error provider segítségével
         /// </summary>
         private void buttonAddRacer_Click(object sender, EventArgs e)
-        {         
+        {
+            // Törölje a hozzáadás gomb ErrorPrivert
+            errorProviderAddRacer.Clear();
+
+            // Ha nincs kijelölt csapat név térjen vissza
+            if (listBoxTeam.SelectedIndex < 0)
+            {
+                return;
+            }
+
+            // Olvassa ki a csapat nevét, és a versenyző adatait
+            string teamName = listBoxTeam.SelectedItem.ToString();
+
+            string racerName = textBoxRacerName.Text;
+            string racerAge = textBoxRacerAge.Text;
+            string racerSalary = textBoxRacerSalary.Text;
+
+            // Alsóbb rétegek segítségével adja hozzá a versenyzőt a csapathoz
+            try
+            {
+                controller.addRacerToTeam(teamName, racerName, racerAge, racerSalary);
+            }
+            catch (ControllerException ex)
+            {
+                //Ha hibát kap el hozzáadás során, jelenítse meg az error provider segítségével
+                errorProviderAddRacer.SetError(buttonAddRacer, ex.Message);
+                return;
+            }
+
+            // Törölje és frissítse a versenyzőket megjelenítő listBox-ot
+            listBoxRacer.DataSource = null;
+            listBoxRacer.DataSource = controller.getTeamRacersName(teamName);
+
         }
 
         /// <summary>
@@ -63,7 +95,8 @@ namespace Forma1
                 listBoxRacer.DataSource = controller.getTeamRacersName(teamName);
             }
             catch (ControllerException ce)
-            {                
+            {
+                errorProviderUpdateRacer.SetError(buttonUpdateRacer, ce.Message);
             }
         }
 

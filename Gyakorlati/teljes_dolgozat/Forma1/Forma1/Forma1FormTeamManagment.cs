@@ -29,7 +29,10 @@ namespace Forma1
             string teamName = listBoxTeam.SelectedItem.ToString();
             //Ide írja a kifejlesztendő kód folytatását! A null nem jó!
 
-            List<string> racerNames = null;
+            List<string> racerNames = controller.getTeamRacersName(teamName);
+
+            listBoxRacer.DataSource = null;
+            listBoxRacer.DataSource = racerNames; //controller.getTeamRacersName(teamName)
 
 
             if (racerNames.Count > 0)
@@ -56,7 +59,10 @@ namespace Forma1
             errorProviderAddTeam.Clear();
             try
             {
-                // Ide írja a kódot
+                controller.addTeamToF1(teamName);
+
+                listBoxTeam.DataSource = null;
+                listBoxTeam.DataSource = controller.getTeamNames();
             }
             catch (ControllerException ce)
             {

@@ -40,6 +40,11 @@ namespace Forma1.service
             return f1Repository.searchRacerByName(teamName, racerName);
         }
 
+        internal int getTeamSalary(string teamName)
+        {
+            return f1Repository.getTeamSalary(teamName);
+        }
+
         /// <summary>
         /// Adott nevű csapatban adott nevű versenyzőnek az ID-je
         /// </summary>
@@ -127,5 +132,9 @@ namespace Forma1.service
             return f1Repository.getRacersFromTheTeam(teamName);
         }
 
+        public int getF1Salary()
+        {
+            return f1Repository.getF1Salary();
+        }
     }
 }

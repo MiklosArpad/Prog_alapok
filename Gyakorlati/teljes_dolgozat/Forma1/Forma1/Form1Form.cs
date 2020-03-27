@@ -32,5 +32,21 @@ namespace Forma1
         {
             this.Close();
         }
+
+        private void ButtonComputeF1Salary_Click(object sender, EventArgs e)
+        {
+            textBoxF1Salary.Text = controller.getF1Salary();
+        }
+
+        private void ButtonComputeTeamSalary_Click(object sender, EventArgs e)
+        {
+            if (listBoxTeam.SelectedIndex < 0)
+            {
+                return;
+            }
+
+            string teamName = listBoxTeam.SelectedItem.ToString();
+            textBoxTeamSalary.Text = controller.getTeamSalary(teamName);
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,11 +37,21 @@ namespace Forma1.controller
         {
             List<string> teamNames = new List<string>();
             List<Team> teams = teamService.getTeams();
-            foreach(Team t in teams)
+            foreach (Team t in teams)
             {
                 teamNames.Add(t.getName());
             }
             return teamNames;
+        }
+
+        public string getF1Salary()
+        {
+            return teamService.getF1Salary().ToString();
+        }
+
+        public string getTeamSalary(string teamName)
+        {
+            return teamService.getTeamSalary(teamName).ToString();
         }
 
         /// <summary>
@@ -52,9 +63,9 @@ namespace Forma1.controller
         {
             List<string> teamNames = new List<string>();
             List<Team> teams = teamService.getTeams();
-            foreach(Team t in teams)
+            foreach (Team t in teams)
             {
-                if (t.getName()!=teamName)
+                if (t.getName() != teamName)
                     teamNames.Add(t.getName());
             }
             return teamNames;
@@ -68,11 +79,22 @@ namespace Forma1.controller
         /// <param name="teamName">A csapat</param>
         public void addTeamToF1(string teamName)
         {
+            try
+            {
+                NameValidator nameValidator = new NameValidator(teamName);
+                nameValidator.validation();
+            }
+            catch (Exception e)
+            {
+                throw new ControllerException(e.Message);
+            }
+
+            teamService.addTeam(teamName);
         }
 
         /// <summary>
         /// Csapat nevének módosítása
-        /// Ellenörzizze, hogy a csapat létezik-e. Ha nem, dobjon kivételt, és azt loggolja
+        /// Ellenörzizze, hogy a csapat létezik-e. Ha létezik, dobjon kivételt, és azt loggolja
         /// Ellenörizze az új nevet a NameValidatorral
         /// Módosítsa a nevet, ha a név rendben van
         /// Az alsó rétegek kivételeit is kapja el, és adja tovább
@@ -81,8 +103,34 @@ namespace Forma1.controller
         /// <param name="newTeamName">A csoport új neve</param>
         public void modifyTeamName(string oldTeamName, string newTeamName)
         {
-            
-        }      
+            // 1. lépés: Ellenörzizze, hogy a csapat létezik-e. Ha létezik, dobjon kivételt, és azt loggolja
+            if (teamService.existTeamName(newTeamName))
+            {
+                Debug.WriteLine("Létező csaptnév!");
+                throw new ControllerException("Létező csaptnév!");
+            }
+
+            // 2. lépés: Ellenörizze az új nevet a NameValidatorral
+            try
+            {
+                NameValidator nv = new NameValidator(newTeamName);
+                nv.validation();
+            }
+            catch (Exception ex)
+            {
+                throw new ControllerException(ex.Message);
+            }
+
+            // 3. lépés: Módosítsa a nevet, ha a név rendben van
+            try
+            {
+                teamService.modifyTeamName(oldTeamName, newTeamName);
+            }
+            catch (Exception ex)
+            {
+                throw new ControllerException(ex.Message);
+            }
+        }
 
         /// <summary>
         /// Adott nevű csapat törlése
@@ -100,7 +148,7 @@ namespace Forma1.controller
             {
                 throw new ControllerException(tse.Message);
             }
-        }       
+        }
         /// <summary>
         /// Versenyző áthelyezése egyik csapatból a másikba
         /// </summary>
