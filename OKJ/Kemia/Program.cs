@@ -38,7 +38,7 @@ namespace Kemia
             // hány sor van a fájlban? 117-et KELL HOGY kapjunk!
             // van egy objektumlistánk, lementegettük az adatokat. 
             // egy sor -> 1 objektum = 117 objektumnak kell lennie a listában
-            Console.WriteLine("3. feladat: Elemek száma: " + felfedezesek.Count);
+            Console.WriteLine($"3. feladat: Elemek száma: {felfedezesek.Count}");
 
             // 4. feladat: Ókorban hány db. elemet fedeztek fel?
             int db = 0;
